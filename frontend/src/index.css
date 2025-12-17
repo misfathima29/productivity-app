@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Variables for Colors */
+:root {
+  --color-electric-red: #FF4757;
+  --color-vibrant-yellow: #FFD32A;
+  --color-bright-blue: #1B9CFC;
+  --color-emerald-green: #20BF6B;
+  --color-charcoal: #1E272E;
+  --color-dark-slategray: #2C3A47;
+  --color-dark-primary: #0F172A;
+  --color-dark-secondary: #1E293B;
+  --color-dark-card: #334155;
+}
+
+/* Custom Glassmorphism Effects */
+.glass-card {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Base styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  min-height: 100vh;
+  color: #E2E8F0;
+}
+
+/* Smooth transitions */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #FF4757, #1B9CFC);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #FF6B81, #54A0FF);
+}
+
+/* Utility Classes */
+.bg-gradient-dark {
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+}
+
+.text-gradient-bright {
+  background: linear-gradient(90deg, #FF4757, #FFD32A, #1B9CFC, #20BF6B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+.glass-white {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Remove default button styles */
+button {
+  cursor: pointer;
+}
+
+button:focus {
+  outline: 2px solid #1B9CFC;
+  outline-offset: 2px;
+}
+
+/* Focus styles */
+input:focus, textarea:focus, select:focus {
+  outline: 2px solid #1B9CFC;
+  outline-offset: 0;
+}
+/* Toast animations */
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out;
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.animate-slide-out {
+  animation: slide-out 0.3s ease-out;
+}

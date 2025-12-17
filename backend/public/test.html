@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Test MongoDB Connection</h2>
+  <button onclick="createTask()">Create Test Task</button>
+  <div id="result"></div>
+
+  <script>
+    async function createTask() {
+      try {
+        const response = await fetch('http://localhost:5000/api/tasks', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            title: 'Test Task from Browser',
+            description: 'Testing MongoDB connection',
+            priority: 'high',
+            status: 'todo'
+          })
+        });
+        
+        const task = await response.json();
+        document.getElementById('result').innerHTML = 
+          `<p>✅ Task created successfully!</p>
+           <pre>${JSON.stringify(task, null, 2)}</pre>`;
+      } catch (error) {
+        document.getElementById('result').innerHTML = 
+          `<p style="color:red">❌ Error: ${error.message}</p>`;
+      }
+    }
+  </script>
+</body>
+</html>
